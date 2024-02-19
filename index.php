@@ -46,11 +46,15 @@ $zaalen = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <ul class="main__zalenList">
                     <?php foreach ($zaalen as $zaal) : ?>
+
+                        <a href="zaal.php?id=<?php echo $zaal['id']; ?>">
                         <li class="main__zalenListItem">
                         <img class="main__zaalImg" src="img/<?php echo $zaal['image']; ?>" alt="">
-
                             <p class="main__zaalNaam"><?php echo $zaal['naam'];?></p>
                         </li>
+
+                        </a>
+                 
                     <?php endforeach; ?>
                 </ul>
             </article>
