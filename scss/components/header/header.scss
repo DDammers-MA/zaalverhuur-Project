@@ -1,0 +1,38 @@
+.mainImg{
+    background-image: url(../../../img/zaal.jpg);
+ 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+    position: fixed;
+    height: 8rem;
+    width: 100%;
+background: rgba(0, 0, 0,0.5);
+  
+
+    &__list{
+        
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        list-style: none;
+    }
+
+    &__div{
+    
+      
+        gap: 2rem;
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+ 
+    &__listImage{
+        height: 8rem;
+        width: 25rem;
+    }
+}

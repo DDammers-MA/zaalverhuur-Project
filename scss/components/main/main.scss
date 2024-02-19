@@ -1,0 +1,52 @@
+.main{
+    height: 100vh;
+
+    &__articleTitle{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title{
+       color: crimson;
+    }
+
+ 
+
+
+    &__secondArticle{
+
+    }
+
+    &__secondTitle{
+        padding: 4rem;
+    }
+
+    &__zalenList{
+        background: turquoise;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        list-style: none;
+      
+     
+    }
+    
+    &__zalenListItem{
+        height: 20rem;
+    }
+
+    &__zaalNaam{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__zaalImg{
+        height: 100%;
+    }
+  
+}

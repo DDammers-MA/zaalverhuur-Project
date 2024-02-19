@@ -1,0 +1,87 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+
+body {
+  background: rgba(238, 238, 238, 0.9333333333);
+  height: 100vh;
+}
+
+.mainImg {
+  background-image: url(../../../img/zaal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  position: fixed;
+  height: 8rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.header__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+}
+.header__div {
+  gap: 2rem;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header__listImage {
+  height: 8rem;
+  width: 25rem;
+}
+
+.main {
+  height: 100vh;
+}
+.main__articleTitle {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__title {
+  color: crimson;
+}
+.main__secondTitle {
+  padding: 4rem;
+}
+.main__zalenList {
+  background: turquoise;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.main__zalenListItem {
+  height: 20rem;
+}
+.main__zaalNaam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__zaalImg {
+  height: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
