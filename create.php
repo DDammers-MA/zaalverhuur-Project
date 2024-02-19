@@ -6,28 +6,27 @@ $connection = dbConnect();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Check if a file was uploaded
     if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
-        // Assuming you have form fields for zaal name and image file upload
-        $zaalId = isset($_POST['zaal_id']) ? $_POST['zaal_id'] : '';
-        $voornaam = isset($_POST['voornaam']) ? $_POST['voornaam'] : '';
-        $achternaam = isset($_POST['achternaam']) ? $_POST['achternaam'] : '';
-        $telefoon = isset($_POST['telefoon']) ? $_POST['telefoon'] : '';
-        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        // Assuming you have a form field for the room name
+        $zaalNaam = isset($_POST['naam']) ? $_POST['naam'] : '';
 
-        // Rest of your code...
+        // File upload handling
+        $imageFileName = $_FILES['image']['name'];
+        $imagePath = 'img/' . $imageFileName;
+
+        move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../' . $imagePath);
+
+        if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            // Handle file upload error
+            die('File upload failed with error code: ' . $_FILES['image']['error']);
+        }
 
         // Insert data into the database
-        $query = "INSERT INTO booking_records (zaal_id, Voornaam, Achternaam, Telefoon, Email, start_datum, eind_datum, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO zaalen (naam, image) VALUES (?, ?)";
         $stmt = $connection->prepare($query);
 
         // Bind parameters
-        $stmt->bindParam(1, $zaalId);
-        $stmt->bindParam(2, $voornaam);
-        $stmt->bindParam(3, $achternaam);
-        $stmt->bindParam(4, $telefoon);
-        $stmt->bindParam(5, $email);
-        $stmt->bindParam(6, $start_datum);
-        $stmt->bindParam(7, $eind_datum);
-        $stmt->bindParam(8, $imagePath); // Store the file path in the database
+        $stmt->bindParam(1, $zaalNaam);
+        $stmt->bindParam(2, $imagePath);
 
         // Execute the statement
         $stmt->execute();
@@ -35,14 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         // Handle case where form submitted without a file
         die('No file was uploaded.');
     }
-
-
 }
 ?>
-
 <form action="create.php" method="post" enctype="multipart/form-data">
     <!-- Your form fields go here -->
     <input type="file" name="image" id="imgToUpload">
-    <input type="text" name="naam">
+    <input type="text" name="naam"> <!-- Room name -->
     <input type="submit" value="submit" name="submit">
 </form>
